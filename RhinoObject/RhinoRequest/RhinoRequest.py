@@ -1,0 +1,36 @@
+from typing import Any, Callable, Union
+from RhinoObject.RhinoRequest.RhunoRequestEnum import Method
+
+
+class RhinoRequest:
+    def __init__(
+            self,
+            url: str,
+            method: Union[Method] = Method.GET.value,
+            params: Union[None, dict] = None,  # GET,DELETE
+            data: Union[dict, str, bytes, None] = None,  # POST
+            headers: Union[dict, None] = None,
+            callback: Callable = None,
+            on_failed: Callable = None,
+            on_error: Callable = None,
+            extra: Any = None,
+            timeout: int = 3,
+            proxy: Union[None, Any] = None,
+            is_sign: bool = True
+    ):
+        """"""
+        self.method = method
+        self.url = url
+        self.callback = callback
+        self.params = params
+        self.data = data
+        self.headers = headers
+
+        self.on_failed = on_failed
+        self.on_error = on_error
+        self.extra = extra
+
+        self.response = None
+        self.timeout = timeout
+        self.is_sign = is_sign
+        self.proxy = proxy
