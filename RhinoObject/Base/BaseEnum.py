@@ -44,6 +44,15 @@ class ExchangeBSC(Enum):
 
 
 @unique
+class ExchangeBSCRoute(Enum):
+    PANCAKESWAP = "0x10ed43c718714eb63d5aa57b78b54704e256024e"
+    BISWAP = "0x3a6d8cA21D1CF76F653A67577FA0D27453350dD8"
+    BABYSWAP = "0x325e343f1de602396e256b67efd1f61c3a6b38bd"
+    APESWAP = "0xcF0feBd3f17CEf5b47b0cD257aCf6025c5BFf3b7"
+    JULSWAP = "0xbd67d157502A23309Db761c41965600c2Ec788b2"
+
+
+@unique
 class ExchangeETH(Enum):
     ETH = "ETH"
 

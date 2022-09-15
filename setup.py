@@ -8,7 +8,7 @@ setup(
     version="0.0.1",
     description="The Rhino quantify of Object",
     url="",
-    author="XiNiun",
+    author="XiNiu",
     author_email="xiniublog@163.com",
     license="GPL",
     packages=[

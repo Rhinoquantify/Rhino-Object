@@ -6,11 +6,14 @@ from RhinoObject.Base.BaseEnum import *
 
 @dataclass
 class BaseInfo:
-    symbol: str = ""
+    symbol: str = ""  # 只能是 BTC 不能是 BTCUSDT
+    symbol_contract: str = ""  # 在 chain 链上的 symbol 合约地址
+    base: str = ""  # 如果 pair 是 BTC_USDT 形式，那么 base 是 USDT
+    base_contract: str = ""  # 在 chain 链上的 base 合约地址
     chain: Union[Chain] = Chain.BSC.value
     key: str = ""  # 作为 dict 的 key
-    pair: str = ""
-    real_pair: str = ""
+    pair: str = ""  # 只能以 token_base 形式书写
+    real_pair: str = ""  # cex 中真实的交易对地址
     cex_exchange: Union[Exchange] = Exchange.BINANCE.value
     cex_exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCESPOT.value
     dex_exchange: Union[ExchangeBSC, ExchangeETH] = ExchangeBSC.BSC.value
@@ -21,9 +24,10 @@ class BaseInfo:
     ip: str = ""
     code: int = 0
     data: dict = None
+    is_dex: bool = False
 
     def __post_init__(self):
-        self.key = "_".join([self.cex_exchange, self.dex_exchange, self.pair])
+        self.key = "_".join([self.cex_exchange_sub, self.dex_exchange, self.pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
