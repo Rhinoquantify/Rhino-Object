@@ -96,3 +96,12 @@ class CexOrderType(Enum):
     CANCEL = "CANCEL"
     CANCELPART = "CANCELPART"
     FAIL = "FAIL"
+
+
+@unique
+class DealDataType(Enum):
+    REDIS = "REDIS"
+    KAFKA = "KAFKA"
+    RABBITMQ = "RABBITMQ"
+    RPC = "RPC"
+    MYSQL = "MYSQL"
