@@ -13,7 +13,7 @@ class BaseInfo:
     chain: Union[Chain] = Chain.BSC.value
     key: str = ""  # 作为 dict 的 key
     pair: str = ""  # 只能以 token_base 形式书写
-    real_pair: str = ""  # cex 中真实的交易对地址
+    real_pair: str = ""  # cex 中真实的交易对地址 dex 也要写，可以按照某些规则自定义，长度不能超过 10
     cex_exchange: Union[Exchange] = Exchange.BINANCE.value
     cex_exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCESPOT.value
     dex_exchange: Union[ExchangeBSC, ExchangeETH] = ExchangeBSC.BSC.value
@@ -25,9 +25,11 @@ class BaseInfo:
     code: int = 0
     data: dict = None
     is_dex: bool = False
+    start_time: int = 0  # 毫秒级别 start_time 和 end_time 是为了统计所消耗的时间
+    end_time: int = 0  # 毫秒级别
 
     def __post_init__(self):
-        self.key = "_".join([self.cex_exchange_sub, self.dex_exchange, self.pair])
+        self.key = "_".join([self.cex_exchange_sub, self.chain, self.dex_exchange, self.pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
@@ -35,16 +37,18 @@ class BaseInfo:
 
 @dataclass
 class MixInfo(BaseInfo):
-    # 基础配置
+    # 其他配置
+    symbol_method: Any = None # 这个是 Rhino-collect 包中的 MethodEnum
     time_out: int = 3
     proxy: Union[Any, None] = None
+    headers: Any = None
     # cex 配置
     depth_limit: int = 5
     ticker_symbol: str = ""  # 如果传入 all 则查询所有的 symbol 否则只查询 ticker_symbol
     ticker_symbols: list = None  # 如果上述传递 all 则会返回海量的数据，通过 ticker_symbols 里面的 real_pair 进行过滤
     # dex 配置
     route: str = ""  # dex 的路由地址
-    pair_address: [] = None
+    pair_addresses: [] = None  # dex 通过传入的 pair 来获取池子的深度 长度不能超过 10 个
     from_index: int = 0
     from_contract: str = ""
     from_amount: float = 0
@@ -57,8 +61,6 @@ class MixInfo(BaseInfo):
 @dataclass
 class RhinoDepth(BaseInfo):
     # dex 特有的
-    pool_reverse0: int = 0
-    pool_reverse1: int = 0
     pool1_reverse0: int = 0
     pool1_reverse1: int = 0
     pool2_reverse0: int = 0
@@ -80,8 +82,6 @@ class RhinoDepth(BaseInfo):
     pool10_reverse0: int = 0
     pool10_reverse1: int = 0
 
-    buy_price: float = 0
-    buy_amount: float = 0
     buy_price1: float = 0
     buy_amount1: float = 0
     buy_price2: float = 0
@@ -103,8 +103,6 @@ class RhinoDepth(BaseInfo):
     buy_price10: float = 0
     buy_amount10: float = 0
 
-    sell_price: float = 0  # 第一深度价格
-    sell_amount: float = 0
     sell_price1: float = 0  # 第一深度价格
     sell_amount1: float = 0
     sell_price2: float = 0  # 第二深度价格
@@ -125,6 +123,9 @@ class RhinoDepth(BaseInfo):
     sell_amount9: float = 0
     sell_price10: float = 0
     sell_amount10: float = 0
+
+    def __str__(self):
+        return f"depths: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
 
 
 @dataclass
