@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Union, List, Any
+from typing import Union, List, Any, Dict
 
 from RhinoObject.Base.BaseEnum import *
 from RhinoObject.Rhino.RhinoEnum import *
@@ -58,6 +58,35 @@ class MixInfo(BaseInfo):
     to_contract: str = ""
     to_amount: float = 0
     to_decimal: int = 0
+
+
+@dataclass
+class DEXInfo:
+    platform: Union[ExchangeBSC] = ExchangeBSC.PANCAKESWAP.value
+    route: Union[ExchangeBSCRoute] = ExchangeBSCRoute.PANCAKESWAP.value
+    pair: str = ""  # 在 chain 链上工厂中存的 pair token
+    pair_contract: str = ""  # pair 的合约地址
+    token_symbol: int = 0
+    token_contract: str = ""
+    token_decimal: int = 0
+    to_symbol: str = ""
+    to_amount: float = 0
+    to_decimal: int = 0
+    token_index: int = 0  # 只能是 0 或者 1
+    # 用户信息相关
+    cex_address: str = ""
+    dex_address: str = ""
+    address: str = ""
+    private: str = ""
+
+
+@dataclass
+class SymbolInfo(MixInfo):
+    symbol_method: Union[MethodEnum, Any] = None  # 调用该 exchange_sub 的什么方法
+    dex: Dict[int, DEXInfo] = None  # int 从 1 开始
+
+    def __str__(self):
+        return f"SymbolInfo: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
 
 
 @dataclass

@@ -30,3 +30,11 @@ class RestEnum(Enum):
     BSCDEXPOOL = "BSCDEXPOOL"
     BSCDEXPOOLASYNCH = "BSCDEXPOOLASYNCH"
     BSCDEXPOOLSYNCH = "BSCDEXPOOLSYNCH"
+
+@unique
+class MethodEnum(Enum):
+    """
+    和 BaseGateway 里面的函数相对应
+    """
+    # RhinoCollect 里面的
+    GETDEPTHS = "GETDEPTHS"
