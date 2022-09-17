@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Union, List, Any
 
 from RhinoObject.Base.BaseEnum import *
+from RhinoObject.Rhino.RhinoEnum import *
 
 
 @dataclass
@@ -19,6 +20,7 @@ class BaseInfo:
     dex_exchange: Union[ExchangeBSC, ExchangeETH] = ExchangeBSC.BSC.value
     dex_type: Union[SymbolType] = SymbolType.SPOT.value
     cex_type: Union[SymbolType] = SymbolType.SPOT.value
+    data_type: Union[RhinoDataType] = RhinoDataType.RHINODEPTH.value  # 存储数据的类型
     rhino_update_time: int = 0  # 该系统接收到的时间 毫秒级别
     data_update_time: int = 0  # 该数据返回自带的时间 毫秒级别
     ip: str = ""
@@ -26,10 +28,10 @@ class BaseInfo:
     data: dict = None
     is_dex: bool = False
     start_time: int = 0  # 毫秒级别 start_time 和 end_time 是为了统计所消耗的时间
-    end_time: int = 0  # 毫秒级别
+    end_time: int = 0  # 毫秒级别 可以是存储时间、网络接收数据时间等
 
     def __post_init__(self):
-        self.key = "_".join([self.cex_exchange_sub, self.chain, self.dex_exchange, self.pair])
+        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.dex_exchange, self.pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
@@ -38,7 +40,7 @@ class BaseInfo:
 @dataclass
 class MixInfo(BaseInfo):
     # 其他配置
-    symbol_method: Any = None # 这个是 Rhino-collect 包中的 MethodEnum
+    symbol_method: Any = None  # 这个是 Rhino-collect 包中的 MethodEnum
     time_out: int = 3
     proxy: Union[Any, None] = None
     headers: Any = None

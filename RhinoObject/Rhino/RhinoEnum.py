@@ -2,6 +2,11 @@ from enum import Enum, unique
 
 
 @unique
+class RhinoDataType(Enum):
+    RHINODEPTH = "RHINODEPTH"
+
+
+@unique
 class Strategy(Enum):
     FLASHSWAPBSC = "FLASHSWAPBSC"
     MULTICEXDEXBSCMEXCTAKER = "MULTICEXDEXBSCMEXCTAKER"
