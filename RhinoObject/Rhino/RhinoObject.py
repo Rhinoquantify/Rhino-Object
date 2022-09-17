@@ -66,11 +66,13 @@ class DEXInfo:
     route: Union[ExchangeBSCRoute] = ExchangeBSCRoute.PANCAKESWAP.value
     pair: str = ""  # 在 chain 链上工厂中存的 pair token
     pair_contract: str = ""  # pair 的合约地址
-    token_symbol: int = 0
+    token_symbol: str = ""
+    token_amount: float = 0
     token_contract: str = ""
     token_decimal: int = 0
     to_symbol: str = ""
     to_amount: float = 0
+    to_contract: str = ""
     to_decimal: int = 0
     token_index: int = 0  # 只能是 0 或者 1
     # 用户信息相关

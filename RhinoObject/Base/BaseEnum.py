@@ -31,6 +31,9 @@ class ExchangeSub(Enum):
     MEXCUSWAP = "MEXCUSWAP"
     BSCSPOT = "BSCSPOT"
 
+    # 这个是 BSC 的 BASE
+    BSCSPOTBASE = "BSCSPOTBASE"
+
 
 @unique
 class ExchangeBSC(Enum):
