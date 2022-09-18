@@ -21,17 +21,18 @@ class BaseInfo:
     dex_type: Union[SymbolType] = SymbolType.SPOT.value
     cex_type: Union[SymbolType] = SymbolType.SPOT.value
     data_type: Union[RhinoDataType] = RhinoDataType.RHINODEPTH.value  # 存储数据的类型
-    rhino_update_time: int = 0  # 该系统接收到的时间 毫秒级别
-    data_update_time: int = 0  # 该数据返回自带的时间 毫秒级别
     ip: str = ""
     code: int = 0
     data: dict = None
     is_dex: bool = False
+    rhino_update_time: int = 0  # 该系统接收到的时间 毫秒级别
+    data_update_time: int = 0  # 该数据返回自带的时间 毫秒级别
     start_time: int = 0  # 毫秒级别 start_time 和 end_time 是为了统计所消耗的时间
     end_time: int = 0  # 毫秒级别 可以是存储时间、网络接收数据时间等
+    store_time: int = 0  # 毫秒级别 存储到其他地方的时间
 
     def __post_init__(self):
-        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.dex_exchange, self.pair])
+        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
@@ -61,7 +62,7 @@ class MixInfo(BaseInfo):
 
 
 @dataclass
-class DEXInfo:
+class DEXInfo(BaseInfo):
     platform: Union[ExchangeBSC] = ExchangeBSC.PANCAKESWAP.value
     route: Union[ExchangeBSCRoute] = ExchangeBSCRoute.PANCAKESWAP.value
     pair: str = ""  # 在 chain 链上工厂中存的 pair token
