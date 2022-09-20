@@ -76,6 +76,8 @@ class DEXInfo(BaseInfo):
     to_contract: str = ""
     to_decimal: int = 0
     token_index: int = 0  # 只能是 0 或者 1
+    pool_reverse0: int = 0
+    pool_reverse1: int = 0
     # 用户信息相关
     cex_address: str = ""
     dex_address: str = ""
@@ -321,3 +323,13 @@ class RhinoPosition(BaseInfo):
 class RhinoToken(BaseInfo):
     token_decimal: int = 0
     token_contract: str = ""
+
+
+@dataclass
+class RhinoProfit(BaseInfo):
+    order_direction: Union[OrderDirection] = OrderDirection.BUY.value
+    strategy: Union[Strategy.MULTICEXDEXBSCMEXCTAKER.value] = Strategy.MULTICEXDEXBSCMEXCTAKER.value
+    profit: float = 0
+    price: float = 0
+    depth_number: int = 1  # 需要吃多少深度的 depth
+
