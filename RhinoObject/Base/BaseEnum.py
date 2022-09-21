@@ -108,3 +108,8 @@ class DealDataType(Enum):
     RABBITMQ = "RABBITMQ"
     RPC = "RPC"
     MYSQL = "MYSQL"
+
+@unique
+class DataGetType(Enum):
+    RESTFUL = "RESTFUL"
+    WEBSOCKET = "WEBSOCKET"

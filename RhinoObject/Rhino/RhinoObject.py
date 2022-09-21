@@ -21,6 +21,7 @@ class BaseInfo:
     dex_type: Union[SymbolType] = SymbolType.SPOT.value
     cex_type: Union[SymbolType] = SymbolType.SPOT.value
     data_type: Union[RhinoDataType] = RhinoDataType.RHINODEPTH.value  # 存储数据的类型
+    data_get_type: Union[DataGetType] = DataGetType.RESTFUL.value
     ip: str = ""
     code: int = 0
     data: dict = None
@@ -332,4 +333,3 @@ class RhinoProfit(BaseInfo):
     profit: float = 0
     price: float = 0
     depth_number: int = 1  # 需要吃多少深度的 depth
-
