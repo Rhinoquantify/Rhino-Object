@@ -3,6 +3,7 @@ from typing import Union, List, Any, Dict
 
 from RhinoObject.Base.BaseEnum import *
 from RhinoObject.Rhino.RhinoEnum import *
+from RhinoObject.Base.BaseObject import *
 
 
 @dataclass
@@ -166,12 +167,12 @@ class RhinoDepth(BaseInfo):
 
 
 @dataclass
-class RhinoTrades(BaseInfo):
+class RhinoTrades:
     ticker_list: [] = None
 
 
 @dataclass
-class RhinoTrade:
+class RhinoTrade(BaseInfo):
     price: float = 0
     amount: float = 0
     time: int = 0
@@ -333,3 +334,29 @@ class RhinoProfit(BaseInfo):
     profit: float = 0
     price: float = 0
     depth_number: int = 1  # 需要吃多少深度的 depth
+
+
+@dataclass
+class RedisConfig(BaseConfig):
+    DataType: Union[RedisDataType] = RedisDataType.SET.value
+
+
+@dataclass
+class RhinoConfig:
+    ip: str = ""
+    heartbeat: int = 0.1
+    collect_type: Union[DealDataType] = DealDataType.REDIS.value
+    redis_config: RedisConfig = None
+
+
+@dataclass
+class SymbolInfos:
+    """
+    和下面的 exchangeSub 一一对应，表示该 exchangeSub 使用 wb 还是 rest 收集数据
+    """
+    subscribes: Dict[Union[ExchangeSub], bool] = None
+    """
+    每一个 ExchangeSub 下面 list 长度不能超过 20 个
+    超过 20 个之后，无论是 python 的 wb 处理还是 rest 请求，都变得有压力
+    """
+    symbols: Dict[Union[ExchangeSub], List[SymbolInfo]] = None

@@ -113,3 +113,8 @@ class DealDataType(Enum):
 class DataGetType(Enum):
     RESTFUL = "RESTFUL"
     WEBSOCKET = "WEBSOCKET"
+
+@unique
+class RedisDataType(Enum):
+    SET = "SET"
+    SUBSCRIBE = "SUBSCRIBE"
