@@ -4,6 +4,7 @@ from enum import Enum, unique
 @unique
 class RhinoDataType(Enum):
     RHINODEPTH = "RHINODEPTH"
+    RHINOTRADE = "RHINOTRADE"
 
 
 @unique

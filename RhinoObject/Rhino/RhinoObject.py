@@ -1,9 +1,8 @@
-from dataclasses import dataclass
 from typing import Union, List, Any, Dict
 
 from RhinoObject.Base.BaseEnum import *
-from RhinoObject.Rhino.RhinoEnum import *
 from RhinoObject.Base.BaseObject import *
+from RhinoObject.Rhino.RhinoEnum import *
 
 
 @dataclass
@@ -34,10 +33,10 @@ class BaseInfo:
     store_time: int = 0  # 毫秒级别 存储到其他地方的时间
 
     def __post_init__(self):
-        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair])
+        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair, self.data_type])
 
     def __str__(self):
-        return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
+        return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}_{self.data_type}"
 
 
 @dataclass
