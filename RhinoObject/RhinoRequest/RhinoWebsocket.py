@@ -13,6 +13,7 @@ class RhinoWebsocket:
             on_pong: Callable = None,
             on_fail: Callable = None,
             on_error: Callable = None,
+            on_transfer: Callable = None,
             extra: Any = None,
             proxy: Union[None, Any] = None,
             heart: int = 10  # 保活机制，ping/pong
@@ -25,6 +26,7 @@ class RhinoWebsocket:
         self.on_ping = on_ping
         self.on_pong = on_pong
         self.on_fail = on_fail
+        self.on_transfer = on_transfer
         self.on_error = on_error
         self.extra = extra
         self.proxy = proxy

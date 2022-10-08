@@ -31,6 +31,7 @@ class RestEnum(Enum):
     BSCDEXPOOLASYNCH = "BSCDEXPOOLASYNCH"
     BSCDEXPOOLSYNCH = "BSCDEXPOOLSYNCH"
 
+
 @unique
 class MethodEnum(Enum):
     """
@@ -38,3 +39,4 @@ class MethodEnum(Enum):
     """
     # RhinoCollect 里面的
     GETDEPTHS = "GETDEPTHS"
+    GETTRADES = "GETTRADES"

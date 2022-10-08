@@ -13,6 +13,7 @@ class RhinoRequest:
             callback: Callable = None,
             on_failed: Callable = None,
             on_error: Callable = None,
+            on_transfer: Callable = None,
             extra: Any = None,
             timeout: int = 3,
             proxy: Union[None, Any] = None,
@@ -28,6 +29,7 @@ class RhinoRequest:
 
         self.on_failed = on_failed
         self.on_error = on_error
+        self.on_transfer = on_transfer
         self.extra = extra
 
         self.response = None
