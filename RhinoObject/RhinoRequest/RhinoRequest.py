@@ -1,4 +1,5 @@
 from typing import Any, Callable, Union
+
 from RhinoObject.RhinoRequest.RhunoRequestEnum import Method
 
 
@@ -14,6 +15,7 @@ class RhinoRequest:
             on_failed: Callable = None,
             on_error: Callable = None,
             on_transfer: Callable = None,
+            on_heart: Callable = None,
             extra: Any = None,
             timeout: int = 3,
             proxy: Union[None, Any] = None,
@@ -30,6 +32,7 @@ class RhinoRequest:
         self.on_failed = on_failed
         self.on_error = on_error
         self.on_transfer = on_transfer
+        self.on_heart = on_heart
         self.extra = extra
 
         self.response = None

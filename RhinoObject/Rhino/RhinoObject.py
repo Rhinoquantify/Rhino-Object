@@ -1,4 +1,4 @@
-from typing import Union, List, Any, Dict
+from typing import Union, List, Any, Dict, Callable
 
 from RhinoObject.Base.BaseEnum import *
 from RhinoObject.Base.BaseObject import *
@@ -88,7 +88,7 @@ class DEXInfo(BaseInfo):
 
 @dataclass
 class SymbolInfo(MixInfo):
-    symbol_method: Union[MethodEnum, Any] = None  # 调用该 exchange_sub 的什么方法
+    symbol_methods: List[Union[MethodEnum, Any]] = None  # 调用该 exchange_sub 的什么方法
     dex: Dict[int, DEXInfo] = None  # int 从 1 开始
 
     def __str__(self):
@@ -176,6 +176,9 @@ class RhinoTrade(BaseInfo):
     amount: float = 0
     time: int = 0
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
+
+    def __str__(self):
+        return f"trades: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
 
 
 @dataclass
@@ -338,6 +341,7 @@ class RhinoProfit(BaseInfo):
 @dataclass
 class RedisConfig(BaseConfig):
     DataType: Union[RedisDataType] = RedisDataType.SET.value
+    is_public: bool = False
 
 
 @dataclass
@@ -359,3 +363,12 @@ class SymbolInfos:
     超过 20 个之后，无论是 python 的 wb 处理还是 rest 请求，都变得有压力
     """
     symbols: Dict[Union[ExchangeSub], List[SymbolInfo]] = None
+
+    on_heart: Callable = None  # 心跳
+
+
+@dataclass
+class WebsocketListen:
+    time: int = 0
+    gateway: str = ""
+    key: str = ""
