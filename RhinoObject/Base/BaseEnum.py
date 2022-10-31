@@ -109,12 +109,14 @@ class DealDataType(Enum):
     RPC = "RPC"
     MYSQL = "MYSQL"
 
+
 @unique
 class DataGetType(Enum):
     RESTFUL = "RESTFUL"
     WEBSOCKET = "WEBSOCKET"
 
+
 @unique
 class RedisDataType(Enum):
     SET = "SET"
-    SUBSCRIBE = "SUBSCRIBE"
+    GET = "GET"

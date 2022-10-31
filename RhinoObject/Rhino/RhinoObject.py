@@ -33,7 +33,7 @@ class BaseInfo:
     store_time: int = 0  # 毫秒级别 存储到其他地方的时间
 
     def __post_init__(self):
-        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair, self.data_type])
+        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}_{self.data_type}"
