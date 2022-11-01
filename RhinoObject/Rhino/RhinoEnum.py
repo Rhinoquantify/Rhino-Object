@@ -41,3 +41,8 @@ class MethodEnum(Enum):
     # RhinoCollect 里面的
     GETDEPTHS = "GETDEPTHS"
     GETTRADES = "GETTRADES"
+
+
+@unique
+class RhinoSign(Enum):
+    QD = "QD"

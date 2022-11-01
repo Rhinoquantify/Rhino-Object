@@ -373,3 +373,14 @@ class WebsocketListen:
     time: int = 0
     gateway: str = ""
     key: str = ""
+
+
+@dataclass
+class QD(BaseInfo):
+    """
+    量价指标
+    在特定的 trade 数量中，多空/买卖占据的比例
+    """
+    amount: float = 0
+    buy_amount: float = 0
+    sell_amount: float = 0
