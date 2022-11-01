@@ -341,7 +341,8 @@ class RhinoProfit(BaseInfo):
 @dataclass
 class RedisConfig(BaseConfig):
     DataType: Union[RedisDataType] = RedisDataType.SET.value
-    is_public: bool = False
+    is_subscribe: bool = False
+    is_async: bool = False
 
 
 @dataclass
