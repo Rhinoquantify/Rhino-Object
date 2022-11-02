@@ -376,11 +376,19 @@ class WebsocketListen:
 
 
 @dataclass
+class SignCondition:
+    # QD
+    is_base: bool = True
+    amount: float = 30_000
+
+
+@dataclass
 class QD(BaseInfo):
     """
     量价指标
     在特定的 trade 数量中，多空/买卖占据的比例
     """
+    key: str = ""
     amount: float = 0
     buy_amount: float = 0
     sell_amount: float = 0
