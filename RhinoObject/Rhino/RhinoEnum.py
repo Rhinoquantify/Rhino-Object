@@ -1,8 +1,14 @@
 from enum import Enum, unique
 
+@unique
+class RhinoSign(Enum):
+    QD = "QD"
 
 @unique
 class RhinoDataType(Enum):
+    QD = "QD"
+    WEBSOCKETBREAK = "WEBSOCKETBREAK"
+    WEBSOCKETSTART = "WEBSOCKETSTART"
     RHINODEPTH = "RHINODEPTH"
     RHINOTRADE = "RHINOTRADE"
 
@@ -41,8 +47,3 @@ class MethodEnum(Enum):
     # RhinoCollect 里面的
     GETDEPTHS = "GETDEPTHS"
     GETTRADES = "GETTRADES"
-
-
-@unique
-class RhinoSign(Enum):
-    QD = "QD"
