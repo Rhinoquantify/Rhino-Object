@@ -1,8 +1,10 @@
 from enum import Enum, unique
 
+
 @unique
 class RhinoSign(Enum):
     QD = "QD"
+
 
 @unique
 class RhinoDataType(Enum):
@@ -17,6 +19,7 @@ class RhinoDataType(Enum):
 class Strategy(Enum):
     FLASHSWAPBSC = "FLASHSWAPBSC"
     MULTICEXDEXBSCMEXCTAKER = "MULTICEXDEXBSCMEXCTAKER"
+    USWAPLSHL = "USWAPLSHL"
 
 
 @unique

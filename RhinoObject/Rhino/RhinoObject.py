@@ -32,6 +32,12 @@ class BaseInfo:
     end_time: int = 0  # 毫秒级别 可以是存储时间、网络接收数据时间等
     store_time: int = 0  # 毫秒级别 存储到其他地方的时间
 
+    sign_key: str = ""
+    sign_secret: str = ""
+    time_out: int = 3
+    proxy: Union[Any, None] = None
+    headers: Any = None
+
     def __post_init__(self):
         self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair])
 
@@ -43,9 +49,6 @@ class BaseInfo:
 class MixInfo(BaseInfo):
     # 其他配置
     symbol_method: Any = None  # 这个是 Rhino-collect 包中的 MethodEnum
-    time_out: int = 3
-    proxy: Union[Any, None] = None
-    headers: Any = None
     # cex 配置
     depth_limit: int = 5
     ticker_symbol: str = ""  # 如果传入 all 则查询所有的 symbol 否则只查询 ticker_symbol
@@ -287,7 +290,7 @@ class RhinoOrder(BaseInfo):
     price: float = 0
     amount: float = 0  # 下单 coin 的数量
     usdt: float = 0  # 价值多少 usdt
-    direction: str = ""
+    direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
     is_taker: bool = True
     order_type: Union[CexOrderForceType] = CexOrderForceType.IOC.value
@@ -297,6 +300,8 @@ class RhinoOrder(BaseInfo):
     cancel: bool = False
     executed_amount: float = 0  # 成交 coin 数量
     executed_usdt: float = 0  # 成交usdt
+
+    is_close: bool = True
 
 
 @dataclass
