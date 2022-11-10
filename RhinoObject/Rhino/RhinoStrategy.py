@@ -9,6 +9,7 @@ class BaseStrategy:
     key: str = ""
     secret: str = ""
     symbol: str = ""
+    real_pair: str = ""
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
 
 

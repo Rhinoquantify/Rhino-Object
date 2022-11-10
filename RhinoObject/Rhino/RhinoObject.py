@@ -410,3 +410,10 @@ class WebsocketData:
     key: Union[ExchangeSub] = ExchangeSub.BINANCESPOT.value
     data_type: Union[RhinoDataType] = RhinoDataType.WEBSOCKETSTART.value
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCESPOT.value
+
+
+@dataclass
+class CallableMethods:
+    on_transfer: Callable = None
+    on_failed: Callable = None
+    on_error: Callable = None
