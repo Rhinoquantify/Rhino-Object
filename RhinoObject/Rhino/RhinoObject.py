@@ -417,3 +417,6 @@ class CallableMethods:
     on_transfer: Callable = None
     on_failed: Callable = None
     on_error: Callable = None
+
+    # 一般用于 on_transfer 的回调函数中，携带的值
+    extra_data: Any = None

@@ -17,6 +17,7 @@ class RhinoRequest:
             on_transfer: Callable = None,
             on_heart: Callable = None,
             extra: Any = None,
+            on_transfer_extra_data: Any = None,
             timeout: int = 3,
             proxy: Union[None, Any] = None,
             is_sign: bool = True
@@ -34,6 +35,7 @@ class RhinoRequest:
         self.on_transfer = on_transfer
         self.on_heart = on_heart
         self.extra = extra
+        self.on_transfer_extra_data = on_transfer_extra_data
 
         self.response = None
         self.timeout = timeout

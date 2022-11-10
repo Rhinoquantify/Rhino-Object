@@ -5,3 +5,4 @@ from enum import Enum, unique
 class Method(Enum):
     GET = "GET"
     POST = "POST"
+    DELETE = "DELETE"

@@ -11,6 +11,7 @@ class BaseStrategy:
     symbol: str = ""
     real_pair: str = ""
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
+    proxy: str = ""
 
 
 @dataclass
