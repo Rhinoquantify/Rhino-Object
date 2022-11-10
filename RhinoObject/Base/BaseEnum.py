@@ -84,6 +84,17 @@ class KLineType(Enum):
 
 
 @unique
+class OrderType(Enum):
+    LIMIT = "LIMIT"
+    MARKET = "MARKET"
+    STOP = "STOP"
+    TAKE_PROFIT = "TAKE_PROFIT"
+    STOP_MARKET = "STOP_MARKET"
+    TAKE_PROFIT_MARKET = "TAKE_PROFIT_MARKET"
+    TRAILING_STOP_MARKET = "TRAILING_STOP_MARKET"
+
+
+@unique
 class CexOrderForceType(Enum):
     # 有效方法
     GTC = "GTC"  # Good Till Cancel 成交为止

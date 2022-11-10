@@ -293,7 +293,8 @@ class RhinoOrder(BaseInfo):
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
     is_taker: bool = True
-    order_type: Union[CexOrderForceType] = CexOrderForceType.IOC.value
+    order_type: Union[OrderType] = OrderType.LIMIT.value
+    OrderForceType: Union[CexOrderForceType] = CexOrderForceType.IOC.value
     state: Union[CexOrderType] = CexOrderType.SUCCESS.value
 
     # 取消 order
