@@ -244,6 +244,7 @@ class RhinoKline:
 @dataclass
 class RhinoBalance:
     symbol: str = ""
+    balance: float = 0
     frozen: float = 0
     available: float = 0
 

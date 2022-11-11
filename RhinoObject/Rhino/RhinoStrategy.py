@@ -25,3 +25,5 @@ class USWAPLSHL(BaseStrategy):
     open_depth: int = 3
     profit: float = 1
     loss: float = 1
+    # 每笔使用多少 usdt 下单
+    order_usdt: float = 5
