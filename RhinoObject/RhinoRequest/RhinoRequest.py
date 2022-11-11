@@ -20,7 +20,8 @@ class RhinoRequest:
             on_transfer_extra_data: Any = None,
             timeout: int = 3,
             proxy: Union[None, Any] = None,
-            is_sign: bool = True
+            is_sign: bool = True,
+            special_sign: str = "data"
     ):
         """"""
         self.method = method
@@ -41,3 +42,4 @@ class RhinoRequest:
         self.timeout = timeout
         self.is_sign = is_sign
         self.proxy = proxy
+        self.special_sign = special_sign
