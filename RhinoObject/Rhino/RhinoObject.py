@@ -320,6 +320,7 @@ class RhinoPosition(BaseInfo):
     position_id: str = ""
     position_type: Union[CexOrderForceType] = CexOrderForceType.IOC.value
     direction: Union[PositionDirection] = PositionDirection.LONG.value
+    Liquidation_Price: float = 0  # 强平价格
     real_profit: float = 0  # 自己根据最新合约价格计算的盈亏
     estimate_profit: float = 0  # 标记价格的未实现盈亏 不是最终的盈亏
     state: Union[CexOrderType] = CexOrderType.SUCCESS.value

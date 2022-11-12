@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Union
 
-from RhinoObject.Base.BaseEnum import ExchangeSub
+from RhinoObject.Base.BaseEnum import ExchangeSub, Exchange
 
 
 @dataclass
@@ -10,6 +10,7 @@ class BaseStrategy:
     secret: str = ""
     symbol: str = ""
     real_pair: str = ""
+    exchange: Union[Exchange] = Exchange.BINANCE.value
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
     proxy: str = ""
 

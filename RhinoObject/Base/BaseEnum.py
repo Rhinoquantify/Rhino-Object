@@ -76,6 +76,7 @@ class OrderDirection(Enum):
 class PositionDirection(Enum):
     LONG = "LONG"
     SHORT = "SHORT"
+    BOTH = "BOTH"
 
 
 @unique
