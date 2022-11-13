@@ -329,6 +329,7 @@ class RhinoPosition(BaseInfo):
     # 平仓
     end_profit: float = 0
     close_time: int = 0
+    is_close: bool = False
 
 
 @dataclass
