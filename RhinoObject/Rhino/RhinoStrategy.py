@@ -28,3 +28,4 @@ class USWAPLSHL(BaseStrategy):
     loss: float = 1
     # 每笔使用多少 usdt 下单
     order_usdt: float = 5
+    max_diff: float = 0  # 回调

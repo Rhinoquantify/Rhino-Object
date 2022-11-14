@@ -330,6 +330,7 @@ class RhinoPosition(BaseInfo):
     end_profit: float = 0
     close_time: int = 0
     is_close: bool = False
+    max_profit: float = 0  # 最大真实利润
 
 
 @dataclass
