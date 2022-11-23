@@ -13,6 +13,7 @@ class RhinoDataType(Enum):
     WEBSOCKETSTART = "WEBSOCKETSTART"
     RHINODEPTH = "RHINODEPTH"
     RHINOTRADE = "RHINOTRADE"
+    RHINOKLINE = "RHINOKLINE"
 
 
 @unique
@@ -50,3 +51,4 @@ class MethodEnum(Enum):
     # RhinoCollect 里面的
     GETDEPTHS = "GETDEPTHS"
     GETTRADES = "GETTRADES"
+    GETKLINE = "GETLINE"

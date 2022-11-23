@@ -15,6 +15,7 @@ class QD(BaseInfo):
     open_price: float = 0
     close_price: float = 0
     amount: float = 0
+    real_amount: float = 0
     buy_amount: float = 0
     sell_amount: float = 0
 

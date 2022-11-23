@@ -90,16 +90,10 @@ class DEXInfo(BaseInfo):
 
 
 @dataclass
-class SymbolInfo(MixInfo):
-    symbol_methods: List[Union[MethodEnum, Any]] = None  # 调用该 exchange_sub 的什么方法
-    dex: Dict[int, DEXInfo] = None  # int 从 1 开始
-
-    def __str__(self):
-        return f"SymbolInfo: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
-
-
-@dataclass
 class RhinoDepth(BaseInfo):
+    depth_limit: int = 5
+    interval: int = 100
+
     # dex 特有的
     pool1_reverse0: int = 0
     pool1_reverse1: int = 0
@@ -205,13 +199,16 @@ class RhinoTicker:
 
 
 @dataclass
-class RhinoKlines(BaseInfo):
+class RhinoKlines:
+    base_info: BaseInfo = None
     interval: Union[KLineType] = KLineType.K_1M.value
     kline_list: [] = None
 
 
 @dataclass
-class RhinoKline:
+class RhinoKline(BaseInfo):
+    interval: str = "1m"  # 更新频率
+
     open_price: float = 0
     close_price: float = 0
     min_price: float = 0
@@ -220,6 +217,9 @@ class RhinoKline:
     down_multi: float = 0  # 下影线相对于实体的倍数
     direction: int = 0  # 涨跌，主要是看开盘和收盘的对比
     trade_count: int = 0  # 成交次数
+    trade_amount: float = 0  # token 成交量
+    trade_sell_amount: float = 0
+    trade_buy_amount: float = 0
     trade_usdt: float = 0  # 成交额
     trade_buy_usdt: float = 0  # 主动买入
     trade_sell_usdt: float = 0  # 主动卖出
@@ -349,6 +349,12 @@ class RhinoProfit(BaseInfo):
 
 
 @dataclass
+class RhinoFundingRate(BaseInfo):
+    funding_rate: float = 0
+    next_funding_rate: float = 0
+
+
+@dataclass
 class RedisConfig(BaseConfig):
     DataType: Union[RedisDataType] = RedisDataType.SET.value
     is_subscribe: bool = False
@@ -361,6 +367,19 @@ class RhinoConfig:
     heartbeat: int = 0.1
     collect_type: Union[DealDataType] = DealDataType.REDIS.value
     redis_config: RedisConfig = None
+
+
+@dataclass
+class SymbolInfo(MixInfo):
+    symbol_methods: List[Union[MethodEnum, Any]] = None  # 调用该 exchange_sub 的什么方法
+    rhino_depth: RhinoDepth = None
+    rhino_trade: RhinoTrade = None
+    rhino_kline: RhinoKline = None
+
+    dex: Dict[int, DEXInfo] = None  # int 从 1 开始
+
+    def __str__(self):
+        return f"SymbolInfo: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
 
 
 @dataclass
