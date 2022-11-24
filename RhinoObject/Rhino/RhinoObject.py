@@ -201,18 +201,20 @@ class RhinoTicker:
 @dataclass
 class RhinoKlines:
     base_info: BaseInfo = None
-    interval: Union[KLineType] = KLineType.K_1M.value
+    k_line_type: Union[KLineType] = KLineType.K_1M.value
     kline_list: [] = None
 
 
 @dataclass
 class RhinoKline(BaseInfo):
-    interval: str = "1m"  # 更新频率
+    k_line_type: Union[KLineType] = KLineType.K_1M.value  # 更新频率
+    is_end: bool = False  # 这跟K是否结束
+    line_limit: int = 10
 
     open_price: float = 0
     close_price: float = 0
-    min_price: float = 0
-    max_price: float = 0
+    low_price: float = 0
+    high_price: float = 0
     up_multi: float = 0  # 上影线相对于实体的倍数
     down_multi: float = 0  # 下影线相对于实体的倍数
     direction: int = 0  # 涨跌，主要是看开盘和收盘的对比
@@ -226,19 +228,20 @@ class RhinoKline(BaseInfo):
     open_time: int = 0
     close_time: int = 0
 
-    def __post_init__(self):
-        if self.open_price > self.close_price:
-            self.direction = -1  # 跌
-            self.up_multi = float((self.max_price - self.open_price) / (self.open_price - self.close_price))
-            self.down_multi = float((self.close_price - self.min_price) / (self.open_price - self.close_price))
-        elif self.open_price < self.close_price:
-            self.direction = 1  # 涨
-            self.up_multi = float((self.max_price - self.close_price) / (self.close_price - self.open_price))
-            self.down_multi = float((self.open_price - self.min_price) / (self.close_price - self.open_price))
-        else:
-            self.direction = 0  # 不涨不跌
-            self.up_multi = float((self.max_price - self.open_price) / self.open_price)
-            self.down_multi = float((self.open_price - self.min_price) / self.open_price)
+    # def __post_init__(self):
+    # if self.open_price > self.close_price:
+    #     self.direction = -1  # 跌
+    #     self.up_multi = float((self.high_price - self.open_price) / (self.open_price - self.close_price))
+    #     self.down_multi = float((self.close_price - self.low_price) / (self.open_price - self.close_price))
+    # elif self.open_price < self.close_price:
+    #     self.direction = 1  # 涨
+    #     self.up_multi = float((self.high_price - self.close_price) / (self.close_price - self.open_price))
+    #     self.down_multi = float((self.open_price - self.low_price) / (self.close_price - self.open_price))
+    # else:
+    #     self.direction = 0  # 不涨不跌
+    #     self.up_multi = float((self.high_price - self.open_price) / self.open_price)
+    #     self.down_multi = float((self.open_price - self.low_price) / self.open_price)
+    # pass
 
 
 @dataclass

@@ -82,6 +82,20 @@ class PositionDirection(Enum):
 @unique
 class KLineType(Enum):
     K_1M = "K_1M"
+    K_3M = "K_3M"
+    K_5M = "K_5M"
+    K_15M = "K_15M"
+    K_30M = "K_30M"
+    K_1H = "K_1H"
+    K_2H = "K_2H"
+    K_4H = "K_4H"
+    K_6H = "K_6H"
+    K_8H = "K_8H"
+    K_12H = "K_12H"
+    K_1D = "K_1D"
+    K_3D = "K_3D"
+    K_1W = "K_1W"
+    K_1Mouth = "K_1Mouth"
 
 
 @unique
