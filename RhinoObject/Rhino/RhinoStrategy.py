@@ -29,3 +29,16 @@ class USWAPLSHL(BaseStrategy):
     # 每笔使用多少 usdt 下单
     order_usdt: float = 5
     max_diff: float = 0  # 回调
+
+
+@dataclass
+class SPOTLBHS(BaseStrategy):
+    """
+    现货 低买高卖
+    """
+    open_depth: int = 3
+    profit: float = 1
+    loss: float = 1
+    # 每笔使用多少 usdt 下单
+    order_usdt: float = 5
+    max_diff: float = 0  # 回调

@@ -5,3 +5,8 @@ from enum import Enum
 class BinanceUswapAmountPrecision(Enum):
     DOGEUSDT = 0
     DOGEBUSD = 0
+
+
+class BinanceSpotAmountPrecision(Enum):
+    BTCUSDT = 5
+    BTCBUSD = 5
