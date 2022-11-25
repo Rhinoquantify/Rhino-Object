@@ -115,6 +115,16 @@ class RhinoDepth(BaseInfo):
     pool9_reverse1: int = 0
     pool10_reverse0: int = 0
     pool10_reverse1: int = 0
+    pool11_reverse0: int = 0
+    pool11_reverse1: int = 0
+    pool12_reverse0: int = 0
+    pool12_reverse1: int = 0
+    pool13_reverse0: int = 0
+    pool13_reverse1: int = 0
+    pool14_reverse0: int = 0
+    pool14_reverse1: int = 0
+    pool15_reverse0: int = 0
+    pool15_reverse1: int = 0
 
     buy_price1: float = 0
     buy_amount1: float = 0
@@ -136,6 +146,16 @@ class RhinoDepth(BaseInfo):
     buy_amount9: float = 0
     buy_price10: float = 0
     buy_amount10: float = 0
+    buy_price11: float = 0
+    buy_amount11: float = 0
+    buy_price12: float = 0
+    buy_amount12: float = 0
+    buy_price13: float = 0
+    buy_amount13: float = 0
+    buy_price14: float = 0
+    buy_amount14: float = 0
+    buy_price15: float = 0
+    buy_amount15: float = 0
 
     sell_price1: float = 0  # 第一深度价格
     sell_amount1: float = 0
@@ -157,6 +177,16 @@ class RhinoDepth(BaseInfo):
     sell_amount9: float = 0
     sell_price10: float = 0
     sell_amount10: float = 0
+    sell_price11: float = 0
+    sell_amount11: float = 0
+    sell_price12: float = 0
+    sell_amount12: float = 0
+    sell_price13: float = 0
+    sell_amount13: float = 0
+    sell_price14: float = 0
+    sell_amount14: float = 0
+    sell_price15: float = 0
+    sell_amount15: float = 0
 
     def __str__(self):
         return f"depths: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
