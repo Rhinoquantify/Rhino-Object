@@ -328,7 +328,7 @@ class RhinoOrder(BaseInfo):
     order_id: str = ""
     is_taker: bool = True
     order_type: Union[OrderType] = OrderType.LIMIT.value
-    OrderForceType: Union[CexOrderForceType] = CexOrderForceType.IOC.value
+    OrderForceType: Union[CexOrderForceType] = None
     state: Union[CexOrderType] = CexOrderType.SUCCESS.value
 
     # 取消 order
@@ -337,6 +337,7 @@ class RhinoOrder(BaseInfo):
     executed_usdt: float = 0  # 成交usdt
 
     is_close: bool = True
+    max_profit: float = 0
 
 
 @dataclass
