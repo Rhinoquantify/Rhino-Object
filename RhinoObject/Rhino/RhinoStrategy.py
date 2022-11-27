@@ -32,10 +32,9 @@ class USWAPLSHL(BaseStrategy):
 
 
 @dataclass
-class SPOTLBHS(BaseStrategy):
-    """
-    现货 低买高卖
-    """
+class LBHS(BaseStrategy):
+    leverage: int = 5
+    depth_limit: int = 5
     open_depth: int = 3
     profit: float = 1
     loss: float = 1
