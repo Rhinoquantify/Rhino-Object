@@ -120,11 +120,13 @@ class CexOrderForceType(Enum):
 
 @unique
 class CexOrderType(Enum):
-    SUCCESS = "SUCCESS"
-    SUCCESSPART = "SUCCESSPART"
-    CANCEL = "CANCEL"
-    CANCELPART = "CANCELPART"
-    FAIL = "FAIL"
+    NEW = "NEW"  # 订单被交易引擎接受
+    PARTIALLY_FILLED = "PARTIALLY_FILLED"  # 部分订单被成交
+    FILLED = "FILLED"  # 订单完全成交
+    CANCELED = "CANCELED"  # 用户撤销了订单
+    PENDING_CANCEL = "PENDING_CANCEL"  # 撤销中
+    REJECTED = "REJECTED"  # 订单没有被交易引擎接受
+    EXPIRED = "EXPIRED"  # 订单被交易引擎取消
 
 
 @unique

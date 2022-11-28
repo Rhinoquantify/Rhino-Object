@@ -9,6 +9,7 @@ class BaseStrategy:
     key: str = ""
     secret: str = ""
     symbol: str = ""
+    base: str = ""
     real_pair: str = ""
     exchange: Union[Exchange] = Exchange.BINANCE.value
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
@@ -41,3 +42,11 @@ class LBHS(BaseStrategy):
     # 每笔使用多少 usdt 下单
     order_usdt: float = 5
     max_diff: float = 0  # 回调
+
+
+@dataclass
+class PINGRID(BaseStrategy):
+    grid_limit: int = 5  # 网格次数
+    order_usdt: float = 5
+    profit: float = 1
+    max_diff: float = 0

@@ -323,13 +323,14 @@ class RhinoWithdraw(BaseInfo):
 class RhinoOrder(BaseInfo):
     price: float = 0
     amount: float = 0  # 下单 coin 的数量
+    execute_amount: float = 0  # 成交数量
     usdt: float = 0  # 价值多少 usdt
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
     is_taker: bool = True
     order_type: Union[OrderType] = OrderType.LIMIT.value
     OrderForceType: Union[CexOrderForceType] = None
-    state: Union[CexOrderType] = CexOrderType.SUCCESS.value
+    state: Union[CexOrderType] = CexOrderType.NEW.value
 
     # 取消 order
     cancel: bool = False
@@ -357,7 +358,7 @@ class RhinoPosition(BaseInfo):
     Liquidation_Price: float = 0  # 强平价格
     real_profit: float = 0  # 自己根据最新合约价格计算的盈亏
     estimate_profit: float = 0  # 标记价格的未实现盈亏 不是最终的盈亏
-    state: Union[CexOrderType] = CexOrderType.SUCCESS.value
+    state: Union[CexOrderType] = CexOrderType.NEW.value
     usdt: float = 0  # 价值多少 usdt
     is_taker: bool = True
     # 平仓
