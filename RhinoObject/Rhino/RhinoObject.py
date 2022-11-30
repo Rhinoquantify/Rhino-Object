@@ -321,6 +321,7 @@ class RhinoWithdraw(BaseInfo):
 
 @dataclass
 class RhinoOrder(BaseInfo):
+    pre_price: float = 0  # 等于 price 防止，市价单卖出时没有成功
     price: float = 0
     amount: float = 0  # 下单 coin 的数量
     execute_amount: float = 0  # 成交数量
@@ -338,6 +339,7 @@ class RhinoOrder(BaseInfo):
     executed_usdt: float = 0  # 成交usdt
 
     is_close: bool = True
+    is_check: Union[bool] = False  # 这参数是为了出现这种情况，当查询完订单状态后，恰好成交，此时又取消订单，然后下订单，就会导致上次订单完全丢失
     max_profit: float = 0
 
 
