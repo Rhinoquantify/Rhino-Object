@@ -209,12 +209,16 @@ class RhinoTrade(BaseInfo):
 
 
 @dataclass
-class RhinoTickers(BaseInfo):
-    ticker_list: [] = None
+class RhinoTickers:
+    key: str = ""
+    ticker_type: Union[TickerType] = TickerType.SINGLE.value
+    ticker_list: list = None
 
 
 @dataclass
-class RhinoTicker:
+class RhinoTicker(BaseInfo):
+    ticker_type: Union[TickerType] = TickerType.SINGLE.value
+
     rate: float = 0  # 本阶段变化 一般指 24 小时
     price_change: float = 0  # 本阶段价格变化 一般指 24 小时
     sell_price: float = 0  # 最低卖价
@@ -412,6 +416,7 @@ class SymbolInfo(MixInfo):
     rhino_depth: RhinoDepth = None
     rhino_trade: RhinoTrade = None
     rhino_kline: RhinoKline = None
+    rhino_ticker: RhinoTicker = None
 
     dex: Dict[int, DEXInfo] = None  # int 从 1 开始
 

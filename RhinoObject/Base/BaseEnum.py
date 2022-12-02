@@ -2,6 +2,12 @@ from enum import Enum, unique
 
 
 @unique
+class OfferType(Enum):
+    FirmOffer = "FirmOffer"  # 实盘
+    TestOffer = "TestOffer"  # 包含假数据、模拟盘、实盘数据、回测数据
+
+
+@unique
 class Chain(Enum):
     ETH = "ETH"
     BSC = "BSC"
@@ -148,3 +154,9 @@ class DataGetType(Enum):
 class RedisDataType(Enum):
     SET = "SET"
     GET = "GET"
+
+
+@unique
+class TickerType(Enum):
+    ALL = "ALL"
+    SINGLE = "SINGLE"

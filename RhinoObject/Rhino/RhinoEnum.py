@@ -14,6 +14,8 @@ class RhinoDataType(Enum):
     RHINODEPTH = "RHINODEPTH"
     RHINOTRADE = "RHINOTRADE"
     RHINOKLINE = "RHINOKLINE"
+    RHINOTICKER = "RHINOTICKER"
+
 
 
 @unique
@@ -52,3 +54,4 @@ class MethodEnum(Enum):
     GETDEPTHS = "GETDEPTHS"
     GETTRADES = "GETTRADES"
     GETKLINE = "GETLINE"
+    GETTICKER = "GETTICKER"
