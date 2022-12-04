@@ -11,6 +11,10 @@ class BaseInfo:
     symbol_contract: str = ""  # 在 chain 链上的 symbol 合约地址
     base: str = ""  # 如果 pair 是 BTC_USDT 形式，那么 base 是 USDT
     base_contract: str = ""  # 在 chain 链上的 base 合约地址
+    base_price_precision: int = 0
+    base_amount_precision: int = 0
+    symbol_price_precision: int = 0
+    symbol_amount_precision: int = 0
     chain: Union[Chain] = Chain.BSC.value
     key: str = ""  # 作为 dict 的 key
     pair: str = ""  # 只能以 token_base 形式书写
@@ -51,8 +55,8 @@ class MixInfo(BaseInfo):
     symbol_method: Any = None  # 这个是 Rhino-collect 包中的 MethodEnum
     # cex 配置
     depth_limit: int = 5
-    ticker_symbol: str = ""  # 如果传入 all 则查询所有的 symbol 否则只查询 ticker_symbol
-    ticker_symbols: list = None  # 如果上述传递 all 则会返回海量的数据，通过 ticker_symbols 里面的 real_pair 进行过滤
+    # ticker_symbol: str = ""  # 如果传入 all 则查询所有的 symbol 否则只查询 ticker_symbol
+    # ticker_symbols: list = None  # 如果上述传递 all 则会返回海量的数据，通过 ticker_symbols 里面的 real_pair 进行过滤
     # dex 配置
     route: str = ""  # dex 的路由地址
     pair_addresses: [] = None  # dex 通过传入的 pair 来获取池子的深度 长度不能超过 10 个
@@ -87,6 +91,11 @@ class DEXInfo(BaseInfo):
     dex_address: str = ""
     address: str = ""
     private: str = ""
+
+
+@dataclass
+class RhinoExchangeInfo(BaseInfo):
+    pass
 
 
 @dataclass
