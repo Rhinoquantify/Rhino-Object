@@ -160,3 +160,10 @@ class RedisDataType(Enum):
 class TickerType(Enum):
     ALL = "ALL"
     SINGLE = "SINGLE"
+
+
+@unique
+class DepthType(Enum):
+    SYMBOL = "SYMBOL"  # 正常单个 symbol 的 depth
+    SYMBOLBEST = "SYMBOLBEST"  # 单个 symbol 最优挂单 最好不用，而是用 SYMBOL 获得，目前没办法区分 SYMBOLBEST 和 BESTALL
+    BESTALL = "BESTALL"  # 全市场最有挂单

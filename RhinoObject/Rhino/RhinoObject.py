@@ -34,6 +34,7 @@ class BaseInfo:
     data_update_time: int = 0  # 该数据返回自带的时间 毫秒级别
     start_time: int = 0  # 毫秒级别 start_time 和 end_time 是为了统计所消耗的时间
     end_time: int = 0  # 毫秒级别 可以是存储时间、网络接收数据时间等
+    end_deal_time: int = 0
     store_time: int = 0  # 毫秒级别 存储到其他地方的时间
 
     sign_key: str = ""
@@ -100,6 +101,8 @@ class RhinoExchangeInfo(BaseInfo):
 
 @dataclass
 class RhinoDepth(BaseInfo):
+    depth_type: Union[DepthType] = DepthType.SYMBOL.value
+
     depth_limit: int = 5
     interval: int = 100
 
