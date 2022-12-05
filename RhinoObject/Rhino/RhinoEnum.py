@@ -4,18 +4,20 @@ from enum import Enum, unique
 @unique
 class RhinoSign(Enum):
     QD = "QD"
+    KLINESIGN = "KLINESIGN"
 
 
 @unique
 class RhinoDataType(Enum):
     QD = "QD"
+    KLINESIGN = "KLINESIGN"
+
     WEBSOCKETBREAK = "WEBSOCKETBREAK"
     WEBSOCKETSTART = "WEBSOCKETSTART"
     RHINODEPTH = "RHINODEPTH"
     RHINOTRADE = "RHINOTRADE"
     RHINOKLINE = "RHINOKLINE"
     RHINOTICKER = "RHINOTICKER"
-
 
 
 @unique
