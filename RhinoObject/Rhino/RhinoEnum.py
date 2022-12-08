@@ -4,13 +4,13 @@ from enum import Enum, unique
 @unique
 class RhinoSign(Enum):
     QD = "QD"
-    KLINESIGN = "KLINESIGN"
+    KLINEORDERSIGN = "KLINEORDERSIGN"  # 根据 K 线下单
 
 
 @unique
 class RhinoDataType(Enum):
     QD = "QD"
-    KLINESIGN = "KLINESIGN"
+    KLINEORDERSIGN = "KLINEORDERSIGN"
 
     WEBSOCKETBREAK = "WEBSOCKETBREAK"
     WEBSOCKETSTART = "WEBSOCKETSTART"

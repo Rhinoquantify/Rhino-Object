@@ -44,7 +44,7 @@ class BaseInfo:
     headers: Any = None
 
     def __post_init__(self):
-        self.key = "_".join([self.data_type, self.cex_exchange_sub, self.chain, self.real_pair])
+        self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
 
     def __str__(self):
         return f"{self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}_{self.data_type}"
@@ -459,13 +459,6 @@ class WebsocketListen:
 
 
 @dataclass
-class SignCondition:
-    # QD
-    is_base: bool = True
-    amount: float = 30_000
-
-
-@dataclass
 class WebsocketData:
     key: Union[ExchangeSub] = ExchangeSub.BINANCESPOT.value
     data_type: Union[RhinoDataType] = RhinoDataType.WEBSOCKETSTART.value
@@ -480,3 +473,4 @@ class CallableMethods:
 
     # 一般用于 on_transfer 的回调函数中，携带的值
     extra_data: Any = None
+    on_transfers: Dict[str, Callable] = None

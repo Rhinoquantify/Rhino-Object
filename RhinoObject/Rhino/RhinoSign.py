@@ -21,3 +21,10 @@ class QD(BaseInfo):
 
     def __post_init__(self):
         self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.QD.value
+
+
+@dataclass
+class SignCondition:
+    # QD
+    is_base: bool = True
+    amount: float = 30_000
