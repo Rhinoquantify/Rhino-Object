@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Union
+from typing import Union, Callable
 
 from RhinoObject.Rhino.RhinoEnum import BarDirectionEnum
 from RhinoObject.Rhino.RhinoEnum import RhinoSign
@@ -42,6 +42,14 @@ class KlineTrend(BaseInfo):
 
     trend_direction: Union[BarDirectionEnum] = BarDirectionEnum.DOWN.value
 
+    on_transfer: Callable = None
+
+
+@dataclass
+class MA(BaseInfo):
+    MA_period: int = 9
+    on_transfer: Callable = None
+
 
 @dataclass
 class SignCondition:
@@ -49,3 +57,4 @@ class SignCondition:
     is_base: bool = True
     amount: float = 30_000
     kline_trend: KlineTrend = None
+    MA: MA = None
