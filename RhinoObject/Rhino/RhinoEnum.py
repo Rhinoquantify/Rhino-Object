@@ -4,13 +4,19 @@ from enum import Enum, unique
 @unique
 class RhinoSign(Enum):
     QD = "QD"
-    KLINEORDERSIGN = "KLINEORDERSIGN"  # 根据 K 线下单
+    MA = "MA"
+    ATR = "ATR"
+    KLINETREND = "KLINETREND"  # 根据 K 线下单
+    KLINETRIANGLE = "KLINETRIANGLE"  # 根据 K 线下单
 
 
 @unique
 class RhinoDataType(Enum):
     QD = "QD"
-    KLINEORDERSIGN = "KLINEORDERSIGN"
+    MA = "MA"
+    ATR = "ATR"
+    KLINETREND = "KLINETREND"
+    KLINETRIANGLE = "KLINETRIANGLE"
 
     WEBSOCKETBREAK = "WEBSOCKETBREAK"
     WEBSOCKETSTART = "WEBSOCKETSTART"
@@ -57,3 +63,10 @@ class MethodEnum(Enum):
     GETTRADES = "GETTRADES"
     GETKLINE = "GETLINE"
     GETTICKER = "GETTICKER"
+
+
+@unique
+class BarDirectionEnum(Enum):
+    UP = "UP"
+    DOWN = "DOWN"
+    BOTH = "BOTH"

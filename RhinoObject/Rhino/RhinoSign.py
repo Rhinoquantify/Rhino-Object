@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+from typing import Union
 
+from RhinoObject.Rhino.RhinoEnum import BarDirectionEnum
 from RhinoObject.Rhino.RhinoEnum import RhinoSign
 from RhinoObject.Rhino.RhinoObject import BaseInfo
 
@@ -24,7 +26,26 @@ class QD(BaseInfo):
 
 
 @dataclass
+class KlineTrend(BaseInfo):
+    bar_amounts: int = 0  # 检测多少根 bar
+
+    # 下面都是百分比 开盘价和收盘价之间的百分比 (开盘价 - 收盘价) / 开盘价
+    single_bar_price_diff_up: float = 0
+    single_bar_amount_diff_up: float = 0
+    all_bar_price_diff_up: float = 0
+    all_bar_amount_diff_up: float = 0
+
+    single_bar_price_diff_down: float = 0
+    single_bar_amount_diff_down: float = 0
+    all_bar_price_diff_down: float = 0
+    all_bar_amount_diff_down: float = 0
+
+    trend_direction: Union[BarDirectionEnum] = BarDirectionEnum.DOWN.value
+
+
+@dataclass
 class SignCondition:
     # QD
     is_base: bool = True
     amount: float = 30_000
+    kline_trend: KlineTrend = None
