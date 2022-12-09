@@ -27,7 +27,7 @@ class QD(BaseInfo):
 
 @dataclass
 class KlineTrend(BaseInfo):
-    bar_amounts: int = 0  # 检测多少根 bar
+    bar_amounts: int = 3  # 检测多少根 bar
 
     # 下面都是百分比 开盘价和收盘价之间的百分比 (开盘价 - 收盘价) / 开盘价
     single_bar_price_diff_up: float = 0
@@ -44,11 +44,28 @@ class KlineTrend(BaseInfo):
 
     on_transfer: Callable = None
 
+    def __post_init__(self):
+        self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.KLINETREND.value
+
 
 @dataclass
 class MA(BaseInfo):
     MA_period: int = 9
+    every_update: bool = True
     on_transfer: Callable = None
+
+    def __post_init__(self):
+        self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.MA.value
+
+
+@dataclass
+class ATR(BaseInfo):
+    ATR_period: int = 9
+    every_update: bool = True
+    on_transfer: Callable = None
+
+    def __post_init__(self):
+        self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.ATR.value
 
 
 @dataclass
@@ -58,3 +75,4 @@ class SignCondition:
     amount: float = 30_000
     kline_trend: KlineTrend = None
     MA: MA = None
+    ATR: ATR = None
