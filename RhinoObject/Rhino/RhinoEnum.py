@@ -6,7 +6,7 @@ class RhinoSign(Enum):
     QD = "QD"
     MA = "MA"
     ATR = "ATR"
-    KLINETREND = "KLINETREND"  # 根据 K 线下单
+    KLINEDOWNTREND = "KLINEDOWNTREND"  # 根据 K 线下单
     KLINETRIANGLE = "KLINETRIANGLE"  # 根据 K 线下单
 
 
@@ -15,7 +15,7 @@ class RhinoDataType(Enum):
     QD = "QD"
     MA = "MA"
     ATR = "ATR"
-    KLINETREND = "KLINETREND"
+    KLINEDOWNTREND = "KLINEDOWNTREND"
     KLINETRIANGLE = "KLINETRIANGLE"
 
     WEBSOCKETBREAK = "WEBSOCKETBREAK"

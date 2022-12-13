@@ -205,19 +205,23 @@ class RhinoDepth(BaseInfo):
 
 
 @dataclass
-class RhinoTrades:
-    ticker_list: [] = None
-
-
-@dataclass
 class RhinoTrade(BaseInfo):
     price: float = 0
     amount: float = 0
     time: int = 0
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
 
+    limit: int = 1000
+    trade_start_time: int = 0
+    trade_end_time: int = 0
+
     def __str__(self):
         return f"trades: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
+
+
+@dataclass
+class RhinoTrades:
+    trade_list: List[RhinoTrade] = None
 
 
 @dataclass

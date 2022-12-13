@@ -50,12 +50,13 @@ class KlineTrend(BaseInfo):
 
 @dataclass
 class MA(BaseInfo):
+    MA_value: float = 0
     MA_period: int = 9
     every_update: bool = True
     on_transfer: Callable = None
 
     def __post_init__(self):
-        self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.MA.value
+        self.key = self.cex_exchange_sub + self.real_pair.upper() + "_" + RhinoSign.MA.value + str(self.MA_period)
 
 
 @dataclass
