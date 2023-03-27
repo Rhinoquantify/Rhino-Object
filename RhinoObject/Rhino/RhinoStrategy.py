@@ -50,3 +50,14 @@ class PINGRID(BaseStrategy):
     order_usdt: float = 5
     profit: float = 1
     max_diff: float = 0
+
+
+@dataclass
+class MeshMoveBottomShort(BaseStrategy):
+    leverage: int = 5  # USWAP 做空杠杆
+    mesh_limit: int = 5  # 网格大小
+    origin_price: float = 0.5  # 初始价格
+    up_mesh_percentage: float = 0.2  # 上区间百分比
+    bottom_mesh_percentage: float = 0.2  # 下区间百分比
+    # 假设 origin_price = 0.5 则区间为 0.5 - 0.5 * 0.2 = 0.4 --- 0.5 + 0.5 * 0.2 = 0.6
+    # 网格大小为 5 ，则每一格为 (0.6 - 0.4) / 5 = 0.04
