@@ -43,6 +43,9 @@ class BaseInfo:
     proxy: Union[Any, None] = None
     headers: Any = None
 
+    rest_url: str = ""
+    wss_url: str = ""
+
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
 
@@ -343,6 +346,7 @@ class RhinoWithdraw(BaseInfo):
 class RhinoOrder(BaseInfo):
     pre_price: float = 0  # 等于 price 防止，市价单卖出时没有成功
     price: float = 0
+    stop_price: float = 0
     amount: float = 0  # 下单 coin 的数量
     execute_amount: float = 0  # 成交数量
     usdt: float = 0  # 价值多少 usdt
@@ -424,6 +428,7 @@ class RhinoConfig:
     heartbeat: int = 0.1
     collect_type: Union[DealDataType] = DealDataType.REDIS.value
     redis_config: RedisConfig = None
+    zh: str = ""
 
 
 @dataclass
