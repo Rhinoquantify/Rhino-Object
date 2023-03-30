@@ -60,8 +60,9 @@ class MeshMoveBottomShortConfig(BaseStrategy):
     mesh_limit: int = 3  # 半边网格大小
     origin_price: float = 0.5  # 初始价格
     mesh_percentage: float = 0.005  # 每格的百分比
-    # 假设 origin_price = 0.5 则区间为 0.5 - 0.5 * 0.2 = 0.4 --- 0.5 + 0.5 * 0.2 = 0.6
-    # 网格大小为 5 ，则每一格为 (0.6 - 0.4) / 5 = 0.04
     mesh_price: list[float] = None  # 价格区间 list
     top_mesh_price: float = 0  # 上区间价格
     bottom_mesh_price: float = 0  # 下区间价格
+
+    spot_usdt: float = 50  # 每一次挂单的价值
+    spot_mix_usdt: float = 5  # 最小卖出价值

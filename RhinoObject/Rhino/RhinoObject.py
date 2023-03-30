@@ -30,12 +30,11 @@ class BaseInfo:
     code: int = 0
     data: dict = None
     is_dex: bool = False
-    rhino_update_time: int = 0  # 该系统接收到的时间 毫秒级别
-    data_update_time: int = 0  # 该数据返回自带的时间 毫秒级别
-    start_time: int = 0  # 毫秒级别 start_time 和 end_time 是为了统计所消耗的时间
-    end_time: int = 0  # 毫秒级别 可以是存储时间、网络接收数据时间等
-    end_deal_time: int = 0
-    store_time: int = 0  # 毫秒级别 存储到其他地方的时间
+
+    data_calcu_time: int = 0  # 数据计算时间，比如币安 trade 数据中的 T
+    gateway_send_time: int = 0  # 从交易所发出该数据的时间，比如币安 trade 数据中的 E
+    rhino_get_time: int = 0  # 程序接收到交易所的时间
+    pipe_start_time: int = 0  # 存放在传输介质的时间
 
     sign_key: str = ""
     sign_secret: str = ""
@@ -45,6 +44,8 @@ class BaseInfo:
 
     rest_url: str = ""
     wss_url: str = ""
+
+    price_percent: int = 5  # 价格精度
 
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
@@ -215,8 +216,6 @@ class RhinoTrade(BaseInfo):
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
 
     limit: int = 1000
-    trade_start_time: int = 0
-    trade_end_time: int = 0
 
     def __str__(self):
         return f"trades: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
