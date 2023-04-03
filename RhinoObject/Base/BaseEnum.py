@@ -76,6 +76,7 @@ class SymbolType(Enum):
 class OrderDirection(Enum):
     BUY = "BUY"
     SELL = "SELL"
+    BOTH = "BOTH"
 
 
 @unique

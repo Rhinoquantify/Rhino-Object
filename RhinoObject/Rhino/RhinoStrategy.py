@@ -65,4 +65,4 @@ class MeshMoveBottomShortConfig(BaseStrategy):
     bottom_mesh_price: float = 0  # 下区间价格
 
     spot_usdt: float = 50  # 每一次挂单的价值
-    spot_mix_usdt: float = 5  # 最小卖出价值
+    spot_mix_usdt: float = 5  # 最小卖出价值，交易所最小单量
