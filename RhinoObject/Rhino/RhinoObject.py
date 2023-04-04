@@ -365,8 +365,8 @@ class RhinoOrder(BaseInfo):
     is_check: Union[bool] = False  # 这参数是为了出现这种情况，当查询完订单状态后，恰好成交，此时又取消订单，然后下订单，就会导致上次订单完全丢失
     max_profit: float = 0
 
-    state1: int = 0  # 此时订单状态
-    state2: int = 0  # 下一个状态
+    state1: int = -1  # 此时订单状态
+    state2: int = -1  # 下一个状态
 
 
 @dataclass
