@@ -15,6 +15,7 @@ class RhinoRequest:
             on_failed: Callable = None,
             on_error: Callable = None,
             on_transfer: Callable = None,
+            on_timeout: Callable = None,
             on_heart: Callable = None,
             extra: Any = None,
             on_transfer_extra_data: Any = None,
@@ -34,6 +35,7 @@ class RhinoRequest:
         self.on_failed = on_failed
         self.on_error = on_error
         self.on_transfer = on_transfer
+        self.on_timeout = on_timeout
         self.on_heart = on_heart
         self.extra = extra
         self.on_transfer_extra_data = on_transfer_extra_data

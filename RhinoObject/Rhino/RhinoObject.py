@@ -351,6 +351,7 @@ class RhinoOrder(BaseInfo):
     usdt: float = 0  # 价值多少 usdt
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
+    client_order_id: str = ""
     is_taker: bool = True
     order_type: Union[OrderType] = OrderType.LIMIT.value
     OrderForceType: Union[CexOrderForceType] = None
@@ -364,9 +365,6 @@ class RhinoOrder(BaseInfo):
     is_close: bool = True
     is_check: Union[bool] = False  # 这参数是为了出现这种情况，当查询完订单状态后，恰好成交，此时又取消订单，然后下订单，就会导致上次订单完全丢失
     max_profit: float = 0
-
-    state1: int = -1  # 此时订单状态
-    state2: int = -1  # 下一个状态
 
 
 @dataclass
@@ -481,6 +479,7 @@ class CallableMethods:
     on_transfer: Callable = None
     on_failed: Callable = None
     on_error: Callable = None
+    on_timeout: Callable = None
 
     # 一般用于 on_transfer 的回调函数中，携带的值
     extra_data: Any = None

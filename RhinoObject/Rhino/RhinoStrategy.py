@@ -54,7 +54,7 @@ class PINGRID(BaseStrategy):
 
 @dataclass
 class MeshMoveBottomShortConfig(BaseStrategy):
-    number_precision: int = 1  # 数量精度
+    amount_precision: int = 1  # 数量精度
     price_precision: int = 5  # 价格精度
     leverage: int = 5  # USWAP 做空杠杆
     mesh_limit: int = 3  # 半边网格大小
