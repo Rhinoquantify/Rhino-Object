@@ -66,3 +66,4 @@ class MeshMoveBottomShortConfig(BaseStrategy):
 
     spot_usdt: float = 50  # 每一次挂单的价值
     spot_mix_usdt: float = 5  # 最小卖出价值，交易所最小单量
+    spot_max_usdt: float = 40  # 策略运行时最大下单量
