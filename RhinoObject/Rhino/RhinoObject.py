@@ -217,6 +217,9 @@ class RhinoTrade(BaseInfo):
 
     limit: int = 1000
 
+    trade_start_time: int = 0  # 开始时间 查询订单的时候的开始时间
+    trade_end_time: int = 0  # 结束时间 查询订单的时候的结束时间
+
     def __str__(self):
         return f"trades: {self.chain}_{self.cex_exchange_sub}_{self.dex_exchange}_{self.real_pair}"
 
@@ -387,6 +390,8 @@ class RhinoPosition(BaseInfo):
     state: Union[CexOrderType] = CexOrderType.NEW.value
     usdt: float = 0  # 价值多少 usdt
     is_taker: bool = True
+    mark_price: float = 0  # 标记价格
+
     # 平仓
     end_profit: float = 0
     close_time: int = 0
