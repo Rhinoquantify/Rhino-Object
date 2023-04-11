@@ -355,6 +355,8 @@ class RhinoOrder(BaseInfo):
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
     client_order_id: str = ""
+    pre_order_id: str = ""
+    pre_client_order_id: str = ""
     is_taker: bool = True
     order_type: Union[OrderType] = OrderType.LIMIT.value
     OrderForceType: Union[CexOrderForceType] = None
@@ -391,6 +393,10 @@ class RhinoPosition(BaseInfo):
     usdt: float = 0  # 价值多少 usdt
     is_taker: bool = True
     mark_price: float = 0  # 标记价格
+    order_id: str = ""
+    client_order_id: str = ""
+    pre_order_id: str = ""
+    pre_client_order_id: str = ""
 
     # 平仓
     end_profit: float = 0

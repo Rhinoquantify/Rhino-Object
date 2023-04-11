@@ -134,6 +134,8 @@ class CexOrderType(Enum):
     PENDING_CANCEL = "PENDING_CANCEL"  # 撤销中
     REJECTED = "REJECTED"  # 订单没有被交易引擎接受
     EXPIRED = "EXPIRED"  # 订单被交易引擎取消
+    CALCULATED = "CALCULATED"  # 订单ADL或爆仓
+    TRADE = "TRADE"  # 交易
 
 
 @unique
