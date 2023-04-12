@@ -71,3 +71,6 @@ class MeshMoveBottomShortConfig(BaseStrategy):
     spot_max_usdt: float = 40  # 策略运行时最大下单量
 
     fee_amount: float = 3  # 手续费预留数量
+
+    dingding_key: str = ""
+    dingding_secret: str = ""
