@@ -350,6 +350,7 @@ class RhinoOrder(BaseInfo):
     price: float = 0
     stop_price: float = 0
     amount: float = 0  # 下单 coin 的数量
+    execute_price: float = 0  # 成交价格
     execute_amount: float = 0  # 成交数量
     usdt: float = 0  # 价值多少 usdt
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
@@ -395,6 +396,7 @@ class RhinoPosition(BaseInfo):
     mark_price: float = 0  # 标记价格
     order_id: str = ""
     client_order_id: str = ""
+    pre_price: float = 0
     pre_order_id: str = ""
     pre_client_order_id: str = ""
 
