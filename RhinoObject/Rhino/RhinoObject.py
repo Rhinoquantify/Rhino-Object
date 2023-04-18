@@ -346,7 +346,6 @@ class RhinoWithdraw(BaseInfo):
 
 @dataclass
 class RhinoOrder(BaseInfo):
-    pre_price: float = 0  # 等于 price 防止，市价单卖出时没有成功
     price: float = 0
     stop_price: float = 0
     amount: float = 0  # 下单 coin 的数量
@@ -356,12 +355,23 @@ class RhinoOrder(BaseInfo):
     direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
     order_id: str = ""
     client_order_id: str = ""
-    pre_order_id: str = ""
-    pre_client_order_id: str = ""
     is_taker: bool = True
     order_type: Union[OrderType] = OrderType.LIMIT.value
     OrderForceType: Union[CexOrderForceType] = None
     state: Union[CexOrderType] = CexOrderType.NEW.value
+
+    # 待删除，以后不用该属性
+    pre_price: float = 0  # 等于 price 防止，市价单卖出时没有成功
+    pre_order_id: str = ""
+    pre_client_order_id: str = ""
+
+    # 记录
+    buy_price: float = 0
+    sell_price: float = 0
+    sell_order_id: str = ""
+    sell_client_order_id: str = ""
+    buy_order_id: str = ""
+    buy_client_order_id: str = ""
 
     # 取消 order
     cancel: bool = False
