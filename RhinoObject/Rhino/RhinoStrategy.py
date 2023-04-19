@@ -14,6 +14,7 @@ class BaseStrategy:
     exchange: Union[Exchange] = Exchange.BINANCE.value
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
     proxy: str = ""
+    time_out: int = 3
 
 
 @dataclass
