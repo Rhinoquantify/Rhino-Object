@@ -66,6 +66,7 @@ class MeshMoveBottomShortConfig(BaseStrategy):
     mesh_price: list[float] = None  # 价格区间 list
     top_mesh_price: float = 0  # 上区间价格
     bottom_mesh_price: float = 0  # 下区间价格
+    origin_bottom_mesh_price: float = 0  # 最开始的下区间价格
 
     spot_usdt: float = 50  # 每一次挂单的价值
     spot_mix_amount: float = 5  # 最小挂单数量
