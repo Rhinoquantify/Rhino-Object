@@ -14,7 +14,7 @@ class BaseStrategy:
     exchange: Union[Exchange] = Exchange.BINANCE.value
     exchange_sub: Union[ExchangeSub] = ExchangeSub.BINANCEUSWAP.value
     proxy: str = ""
-    time_out: int = 3
+    time_out: int = 8
 
 
 @dataclass
@@ -60,6 +60,7 @@ class MeshMoveBottomShortConfig(BaseStrategy):
     amount_precision: int = 1  # 数量精度
     price_precision: int = 5  # 价格精度
     leverage: int = 5  # USWAP 做空杠杆
+    position_leverage: int = 3  # 实际做空杠杆数
     mesh_limit: int = 3  # 半边网格大小
     origin_price: float = 0.5  # 初始价格
     mesh_percentage: float = 0.005  # 每格的百分比
