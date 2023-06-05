@@ -352,7 +352,8 @@ class RhinoOrder(BaseInfo):
     execute_price: float = 0  # 成交价格
     execute_amount: float = 0  # 成交数量
     usdt: float = 0  # 价值多少 usdt
-    direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
+    direction: Union[OrderDirection] = OrderDirection.BUY.value
+    position_direction: Union[PositionDirection, None] = None
     order_id: str = ""
     client_order_id: str = ""
     is_taker: bool = True
