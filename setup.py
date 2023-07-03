@@ -16,5 +16,7 @@ setup(
         "RhinoObject.Base",
         "RhinoObject.Rhino",
         "RhinoObject.RhinoRequest",
+        "RhinoObject.Struct",
+        "RhinoObject.Struct.FixedArray",
     ]
 )
