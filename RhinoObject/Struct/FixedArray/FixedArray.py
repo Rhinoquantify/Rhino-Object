@@ -28,6 +28,11 @@ class FixedArray:
                 self._items[i] = self._items[i + 1]
             self._items[self._exist_size - 1] = value
 
+    def set_index_value(self, index, value):
+        if index > self._size - 1:
+            return
+        self._items[index] = value
+
     def get_index(self, index):
         if index > self._size - 1:
             return None
@@ -79,3 +84,9 @@ class FixedArray:
         for i in range(left, right):
             new_fixed_array.insert_end(self.get_index(i))
         return new_fixed_array
+
+    def get_exist_end(self):
+        return self._items[self._exist_size - 1]
+
+    def get_all_end(self):
+        return self._items[self._size - 1]
