@@ -27,6 +27,9 @@ class Exchange(Enum):
 
 @unique
 class ExchangeSub(Enum):
+    """
+    CEX
+    """
     BINANCESPOT = "BINANCESPOT"
     BINANCEUSWAP = "BINANCEUSWAP"
     OKEXSPOT = "OKEXSPOT"
@@ -35,10 +38,17 @@ class ExchangeSub(Enum):
     HUOBIUSWAP = "HUOBIUSWAP"
     MEXCSPOT = "MEXCSPOT"
     MEXCUSWAP = "MEXCUSWAP"
-    BSCSPOT = "BSCSPOT"
 
     # 这个是 BSC 的 BASE
+
+    """
+    DEX
+    """
+    BSCSPOT = "BSCSPOT"
     BSCSPOTBASE = "BSCSPOTBASE"
+    PANCKESWAPBSC = "PANCKESWAPBSC"
+    SUSHISWAPBSC = "SUSHISWAPBSC"
+    UNISWAPV2ETH = "UNISWAPV2ETH"
 
 
 @unique
