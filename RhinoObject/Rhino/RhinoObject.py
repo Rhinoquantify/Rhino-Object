@@ -46,6 +46,8 @@ class BaseInfo:
     wss_url: str = ""
 
     price_percent: int = 5  # 价格精度
+    chains: List = None
+    chains_contracts: List = None
 
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
