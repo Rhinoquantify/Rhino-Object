@@ -48,6 +48,8 @@ class BaseInfo:
     price_percent: int = 5  # 价格精度
     chains: List = None
     chains_contracts: List = None
+    deposit_enables: List[bool] = None  # 是否可充值
+    withdraw_enables: List[bool] = None  # 是否可提币
 
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
@@ -384,6 +386,13 @@ class RhinoOrder(BaseInfo):
     is_close: bool = True
     is_check: Union[bool] = False  # 这参数是为了出现这种情况，当查询完订单状态后，恰好成交，此时又取消订单，然后下订单，就会导致上次订单完全丢失
     max_profit: float = 0
+
+    # 链上
+    routers: list = None
+    token_contracts: list = None
+    receive_address: str = ""
+    amount_out: int = 0
+    nonce: int = 0
 
 
 @dataclass

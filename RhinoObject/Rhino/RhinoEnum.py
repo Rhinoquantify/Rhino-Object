@@ -63,6 +63,7 @@ class MethodEnum(Enum):
     GETTRADES = "GETTRADES"
     GETKLINE = "GETLINE"
     GETTICKER = "GETTICKER"
+    GETACCOUNT = "GETACCOUNT"
 
 
 @unique
