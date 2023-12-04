@@ -146,6 +146,7 @@ class CexOrderType(Enum):
     EXPIRED = "EXPIRED"  # 订单被交易引擎取消
     CALCULATED = "CALCULATED"  # 订单ADL或爆仓
     TRADE = "TRADE"  # 交易
+    FAILED = "FAILED"  # 交易失败
 
 
 @unique

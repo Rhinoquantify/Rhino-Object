@@ -393,6 +393,7 @@ class RhinoOrder(BaseInfo):
     receive_address: str = ""
     amount_out: int = 0
     nonce: int = 0
+    eth_tx: str = ""
 
 
 @dataclass
