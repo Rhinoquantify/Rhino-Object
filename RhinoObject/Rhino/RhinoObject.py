@@ -396,6 +396,7 @@ class RhinoOrder(BaseInfo):
     nonce: int = 0
     eth_tx: str = ""
     token_burn: bool = False
+    logs: list = None
 
 
 @dataclass
