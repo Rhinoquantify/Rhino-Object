@@ -391,9 +391,11 @@ class RhinoOrder(BaseInfo):
     routers: list = None
     token_contracts: list = None
     receive_address: str = ""
+    amount_in: int = 0
     amount_out: int = 0
     nonce: int = 0
     eth_tx: str = ""
+    token_burn: bool = False
 
 
 @dataclass
