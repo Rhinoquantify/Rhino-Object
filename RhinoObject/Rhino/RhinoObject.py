@@ -50,6 +50,8 @@ class BaseInfo:
     chains_contracts: List = None
     deposit_enables: List[bool] = None  # 是否可充值
     withdraw_enables: List[bool] = None  # 是否可提币
+    nonce: int = 0
+    gas: int = 3
 
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
@@ -393,7 +395,6 @@ class RhinoOrder(BaseInfo):
     receive_address: str = ""
     amount_in: int = 0
     amount_out: int = 0
-    nonce: int = 0
     eth_tx: str = ""
     token_burn: bool = False
     logs: list = None
