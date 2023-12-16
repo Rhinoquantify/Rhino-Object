@@ -50,6 +50,7 @@ class BaseInfo:
     chains_contracts: List = None
     deposit_enables: List[bool] = None  # 是否可充值
     withdraw_enables: List[bool] = None  # 是否可提币
+    withdraw_amounts: List[float] = None
     nonce: int = 0
     gas: int = 3
 
