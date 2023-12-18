@@ -38,6 +38,8 @@ class ExchangeSub(Enum):
     HUOBIUSWAP = "HUOBIUSWAP"
     MEXCSPOT = "MEXCSPOT"
     MEXCUSWAP = "MEXCUSWAP"
+    GATEUSPOT = "GATEUSPOT"
+    GATEUSWAP = "GATEUSWAP"
 
     # 这个是 BSC 的 BASE
 

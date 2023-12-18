@@ -53,6 +53,7 @@ class BaseInfo:
     withdraw_amounts: List[float] = None
     nonce: int = 0
     gas: int = 3
+    address: str = ""  # 钱包地址
 
     def __post_init__(self):
         self.key = "_".join([self.cex_exchange_sub, self.data_type, self.real_pair])
