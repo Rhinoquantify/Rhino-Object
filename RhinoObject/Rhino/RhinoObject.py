@@ -428,6 +428,8 @@ class RhinoOrder(BaseInfo):
     eth_tx: str = ""
     token_burn: bool = False
     logs: list = None
+    code: int = 0
+    error_info: str = ""
 
 
 @dataclass
