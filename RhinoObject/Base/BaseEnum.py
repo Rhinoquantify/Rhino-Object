@@ -21,6 +21,7 @@ class Exchange(Enum):
     HUOBI = "HUOBI"
     MEXC = "MEXC"
     GATE = "GATE"
+    BITGET = "BITGET"
     FTX = "FTX"
     BSC = "BSC"
 
@@ -40,6 +41,7 @@ class ExchangeSub(Enum):
     MEXCUSWAP = "MEXCUSWAP"
     GATEUSPOT = "GATEUSPOT"
     GATEUSWAP = "GATEUSWAP"
+    BITGETSPOT = "BITGETSPOT"
 
     # 这个是 BSC 的 BASE
 

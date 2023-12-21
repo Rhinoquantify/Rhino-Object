@@ -50,7 +50,8 @@ class BaseInfo:
     chains_contracts: List = None
     deposit_enables: List[bool] = None  # 是否可充值
     withdraw_enables: List[bool] = None  # 是否可提币
-    withdraw_amounts: List[float] = None
+    withdraw_amounts: List[float] = None  # 提币手续费
+    transfer_feess: List[float] = None  # 转账手续费
     nonce: int = 0
     gas: int = 3
     address: str = ""  # 钱包地址
