@@ -428,7 +428,7 @@ class RhinoOrder(BaseInfo):
     amount_out: int = 0
     eth_tx: str = ""
     token_burn: bool = False
-    logs: list = None
+    logs: Union[list, str] = None
     code: int = 0
     error_info: str = ""
     from_contract: str = ""

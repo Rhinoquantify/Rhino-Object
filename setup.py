@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
     name="RhinoObject",
-    version="0.1.7",
+    version="0.1.9",
     description="The Rhino quantify of Object",
     url="",
     author="XiNiu",
