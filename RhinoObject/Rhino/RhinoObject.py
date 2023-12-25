@@ -431,6 +431,9 @@ class RhinoOrder(BaseInfo):
     logs: list = None
     code: int = 0
     error_info: str = ""
+    from_contract: str = ""
+    to_contract: str = ""
+    gas_price: int = ""
 
 
 @dataclass
