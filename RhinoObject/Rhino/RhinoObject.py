@@ -533,8 +533,6 @@ class SymbolInfos:
     """
     symbols: Dict[Union[ExchangeSub], List[SymbolInfo]] = None
 
-    on_heart: Callable = None  # 心跳
-
 
 @dataclass
 class WebsocketListen:
@@ -556,6 +554,7 @@ class CallableMethods:
     on_failed: Callable = None
     on_error: Callable = None
     on_timeout: Callable = None
+    on_heart: Callable = None
 
     # 一般用于 on_transfer 的回调函数中，携带的值
     extra_data: Any = None
