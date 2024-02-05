@@ -154,6 +154,19 @@ class CexOrderType(Enum):
 
 
 @unique
+class WithdrawStatus(Enum):
+    SUBMIT = ""  # 提交申请
+    CHECK = "CHECK"  # 审核
+    WAIT = "WAIT"  # 等待处理
+    PROCESSING = "PROCESSING"  # 处理中
+    WINDINGPROCESSING = "WINDINGPROCESSING"  # 上链过程中
+    CONFIRM = "CONFIRM"  # 上链成功
+    SUCCESS = "SUCCESS"  # 提现成功
+    FAIL = "FAIL"  # 提现失败
+    CANCEL = "CANCEL"  # 取消
+
+
+@unique
 class DealDataType(Enum):
     REDIS = "REDIS"
     KAFKA = "KAFKA"
