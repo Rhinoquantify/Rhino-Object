@@ -376,9 +376,10 @@ class RhinoWithdraw(BaseInfo):
     amount: float = 0  # 提现的数量
     fee: float = 0  # 手续费
     is_success: bool = False
-    withdraw_state: str = ""
+    withdraw_state: Union[WithdrawStatus] = WithdrawStatus.SUBMIT.value
     withdraw_id: str = ""
     tx: str = ""  # 交易 hash
+    apply_time: int = 0  # 申请提现时间
 
 
 @dataclass
