@@ -246,6 +246,16 @@ class RhinoDepth(BaseInfo):
 
 
 @dataclass
+class RhinoIncreaseDepth:
+    price: float = 0
+    amount: float = 0
+    real_pair: str = ""
+    direction: Union[OrderDirection, PositionDirection] = OrderDirection.BUY.value
+    gateway_send_time: int = 0
+    rhino_get_time: int = 0
+
+
+@dataclass
 class RhinoTrade(BaseInfo):
     price: float = 0
     amount: float = 0
