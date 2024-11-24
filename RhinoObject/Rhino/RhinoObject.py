@@ -355,11 +355,6 @@ class RhinoBalance:
 
 
 @dataclass
-class RhinoAccount(BaseInfo):
-    balance_list: Union[List[RhinoBalance], None] = None
-
-
-@dataclass
 class RhinoCexConfig(BaseInfo):
     key: str = ""
     secret: str = ""
@@ -479,6 +474,12 @@ class RhinoPosition(BaseInfo):
     close_time: int = 0
     is_close: bool = False
     max_profit: float = 0  # 最大真实利润
+
+
+@dataclass
+class RhinoAccount(BaseInfo):
+    balance_list: Union[List[RhinoBalance], None] = None
+    position_list: Union[List[RhinoPosition], None] = None
 
 
 @dataclass
